@@ -1,3 +1,7 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 public class member {
 
     private String fName, lName, email, address, studentRoll;
@@ -19,7 +23,27 @@ public class member {
     public String getStudentRoll() { return studentRoll; }
     public int getPhoneNo() { return phoneNo; }
 
-    
+    public void setFName(String fName) {this.fName = fName;}
+    public void setFLame(String lName) {this.lName = lName;}
+    public void setEmail(String email) {this.email = email;}
+    public void setAddress(String address) {this.address = address;}
+    public void setStudentRoll(String studentRoll) {this.studentRoll = studentRoll;}
+    public void setPhoneNo(int phoneNo) {this.phoneNo = phoneNo;}
+
+    public String toString() {
+       return "Name: " + fName + " " + lName + " Email: " + email + " address: " + address + " Roll Number:  "
+       + studentRoll + " Phone: " + phoneNo;  
+    }
 
 
+
+
+    public void saveToFile(String filename) {
+        try (FileWriter fileWriter = new FileWriter(filename, true); 
+            PrintWriter printWriter = new PrintWriter(fileWriter)) {
+            printWriter.println(this.toString());
+        } catch (IOException e) {
+            System.out.println("An error occurred while writing to file: " + e.getMessage());
+        }
+    }
 }
