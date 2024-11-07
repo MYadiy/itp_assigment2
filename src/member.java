@@ -11,4 +11,15 @@ public class member {
         this.studentRoll = studentRoll;
         this.phoneNo = phoneNo;
     }
+
+    public String getFName() { return fName; }
+    public String getLName() { return lName; }
+    public String getEmail() { return email; }
+    public String getAddress() { return address; }
+    public String getStudentRoll() { return studentRoll; }
+    public int getPhoneNo() { return phoneNo; }
+
+    
+
+
 }
