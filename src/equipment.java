@@ -4,13 +4,13 @@ import java.io.PrintWriter;
 
 public class equipment {
     private String equipmentName, equipmentDescription, equipmentActivity, equipmentDateOfPurchase;
-    private int equipmentPurchaseCost, equipmentHireCostWeekend, equipmentHireCostWeek;
+    private int equipmentNumber, equipmentPurchaseCost, equipmentHireCostWeekend, equipmentHireCostWeek;
     private boolean equipmentReturned;
 
     // constructor
     
     public equipment(String equipmentName, String equipmentDescription, String equipmentActivity,
-    String equipmentDateOfPurchase, int equipmentPurchaseCost,
+    String equipmentDateOfPurchase, int equipmentNumber, int equipmentPurchaseCost,
     int equipmentHireCostWeekend, int equipmentHireCostWeek, boolean equipmentReturned) {
     this.equipmentName = equipmentName;
     this.equipmentDescription = equipmentDescription;
@@ -38,6 +38,10 @@ public class equipment {
 
     public String getEquipmentDateOfPurchase() {
         return equipmentDateOfPurchase;
+    }
+
+    public int getEquipmentNumber() {
+        return equipmentNumber;
     }
 
     public int getEquipmentPurchaseCost() {
@@ -73,6 +77,10 @@ public class equipment {
 
     public void setEquipmentDateOfPurchase(String equipmentDateOfPurchase) {
         this.equipmentDateOfPurchase = equipmentDateOfPurchase;
+    }
+
+    public void setEquipmentNumber(int equipmentNumber) {
+        this.equipmentNumber = equipmentNumber;
     }
 
     public void setEquipmentPurchaseCost(int equipmentPurchaseCost) {
