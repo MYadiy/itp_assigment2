@@ -11,3 +11,13 @@ Loan.No: 1, LoanDate: 2024-10-31, ReturnDate: 2024-11-01, Item.No: 202, Member.N
 Loan.No: 1, LoanDate: 2222-12-22, ReturnDate: 2222-12-23, Item.No: 202, Member.No: 505, GearOfficer.No: 404, Cost: 0.0
 Loan.No: 1, LoanDate: 1111-11-11, ReturnDate: 1111-11-12, Item.No: 202, Member.No: 505, GearOfficer.No: 404, Cost: 0.0
 Loan.No: 1, LoanDate: 2222-12-12, ReturnDate: 2222-12-12, Item.No: 202, Member.No: 505, GearOfficer.No: 404, Cost: 0.0
+Loan.No: 1, LoanDate: 1212-12-13, ReturnDate: 1212-12-14, Item.No: 202, Member.No: 505, GearOfficer.No: 404, Cost: 0.0
+Loan.No: 1, LoanDate: 1212-12-12, ReturnDate: 1212-12-12, Item.No: 1, Member.No: 505, GearOfficer.No: 404, Cost: 0.0
+Loan.No: 1, LoanDate: 1212-12-12, ReturnDate: 1212-12-12, Item.No: 1, Member.No: 5, GearOfficer.No: 404, Cost: 0.0
+Loan.No: 1, LoanDate: 1212-12-12, ReturnDate: 1212-12-12, Item.No: 1, Member.No: 5, GearOfficer.No: 404, Cost: 0.0
+Loan.No: 1, LoanDate: 1212-12-12, ReturnDate: 1212-12-12, Item.No: 1, Member.No: 5, GearOfficer.No: 5, Cost: 0.0
+Loan.No: 1, LoanDate: 1212-12-12, ReturnDate: 1212-12-12, Item.No: 1, Member.No: 5, GearOfficer.No: 5, Cost: 0.0
+Loan.No: 1, LoanDate: 1212-12-12, ReturnDate: 1212-12-12, Item.No: 1, Member.No: 5, GearOfficeryadiy e, Cost: 0.0
+Loan.No: 1, LoanDate: 2024-11-09, ReturnDate: 2024-11-11, Item.No: 1, Member.No: 5, GearOfficeryadiy e, Cost: 0.0
+Loan.No: 1, LoanDate: 1212-12-12, ReturnDate: 1212-12-12, Item.No: 1, Member.No: 5, GearOfficeryadiy e, Cost: 0.0
+Loan.No: 1, LoanDate: 1212-12-12, ReturnDate: 1212-12-12, Item.No: 1, Member.No: 5, GearOfficeryadiy e, Cost: 0.0
