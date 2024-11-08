@@ -86,7 +86,9 @@ public class utbOutdoorsClub {
                 }else if(choice == 3){
                     // Muin here (Loan Equipment)
                 }else if(choice == 4){
-                    // (list loaned equipment)
+                    String equipmentNoReturn = "equipment.txt"; // File name
+
+                    listNotReturnedEquipment(equipmentNoReturn);
                 }else if(choice == 5){
 
                         System.out.println("List of Overdued Equipment: \n");
@@ -264,6 +266,31 @@ public class utbOutdoorsClub {
             System.out.println("Invalid date format in line: " + line);
         }
         return null;
+    }
+
+
+    // Choice 4 function
+    public static void listNotReturnedEquipment(String equipmentNoReturn) {
+        try (BufferedReader br = new BufferedReader(new FileReader(equipmentNoReturn))) {
+            String line;
+            
+            System.out.println("\nEquipment not returned:");
+            while ((line = br.readLine()) != null) {
+                if (isNotReturned(line)) {
+                    System.out.println(line);
+                }
+            }
+            System.out.println("\n");
+
+        } catch (IOException e) {
+            System.out.println("Error reading the file: " + e.getMessage());
+        }
+    }
+
+    // Method to check if equipment is not returned
+    private static boolean isNotReturned(String line) {
+        // Check if "Returned: false" is present in the line
+        return line.contains("Returned: false");
     }
 
 }

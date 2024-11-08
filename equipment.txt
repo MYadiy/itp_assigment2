@@ -1,2 +1,2 @@
 Equipment Number: 1, Name: Tent, Description: A large camping tent, Activity: Camping, Date of Purchase: 2024-01-01, Purchase Cost: 1000, Hire Cost (Weekend): 50, Hire Cost (Week): 80, Returned: true
-Equipment Number: 2, Name: Bed, Description: A large Bed, Activity: Sleep, Date of Purchase: 20-04-2024, Purchase Cost: 1000, Hire Cost (Weekend): 45, Hire Cost (Week): 78, Returned: true
+Equipment Number: 2, Name: Bed, Description: A large Bed, Activity: Sleep, Date of Purchase: 20-04-2024, Purchase Cost: 1000, Hire Cost (Weekend): 45, Hire Cost (Week): 78, Returned: false
