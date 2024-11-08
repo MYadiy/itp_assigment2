@@ -104,7 +104,14 @@ public class utbOutdoorsClub {
         }while(condition == true);
            
 
-        System.out.println("Loaded " + memberCount + " members");
+        int memberCount2 = member.countLines("members.txt");
+        System.out.println("Loaded " + memberCount2 + " members");
+        int equipmentCount2 = member.countLines("equipment.txt");
+        System.out.println("Loaded " + equipmentCount2 + " Equpiments");
+        int loanCount2 = member.countLines("loan.txt");
+        System.out.println("Loaded " + loanCount2 + " Loans");
+
+
        
 
 
