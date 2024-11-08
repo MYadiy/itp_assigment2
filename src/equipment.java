@@ -1,18 +1,21 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 public class equipment {
     private String equipmentName, equipmentDescription, equipmentActivity, equipmentDateOfPurchase;
-    private int equipmentPurchaseCost, equipmentHireCostWeekend, equipmentHireCostWeek;
+    private int equipmentNumber, equipmentPurchaseCost, equipmentHireCostWeekend, equipmentHireCostWeek;
     private boolean equipmentReturned;
 
     // constructor
     
     public equipment(String equipmentName, String equipmentDescription, String equipmentActivity,
-    String equipmentDateOfPurchase, int equipmentPurchaseCost,
+    String equipmentDateOfPurchase, int equipmentNumber, int equipmentPurchaseCost,
     int equipmentHireCostWeekend, int equipmentHireCostWeek, boolean equipmentReturned) {
     this.equipmentName = equipmentName;
+    this.equipmentNumber = equipmentNumber;
     this.equipmentDescription = equipmentDescription;
     this.equipmentActivity = equipmentActivity;
     this.equipmentDateOfPurchase = equipmentDateOfPurchase;
@@ -38,6 +41,10 @@ public class equipment {
 
     public String getEquipmentDateOfPurchase() {
         return equipmentDateOfPurchase;
+    }
+
+    public int getEquipmentNumber() {
+        return equipmentNumber;
     }
 
     public int getEquipmentPurchaseCost() {
@@ -75,6 +82,10 @@ public class equipment {
         this.equipmentDateOfPurchase = equipmentDateOfPurchase;
     }
 
+    public void setEquipmentNumber(int equipmentNumber) {
+        this.equipmentNumber = equipmentNumber;
+    }
+
     public void setEquipmentPurchaseCost(int equipmentPurchaseCost) {
         this.equipmentPurchaseCost = equipmentPurchaseCost;
     }
@@ -94,7 +105,7 @@ public class equipment {
     // display equipment details
 
     public String toString() {
-        return "Name: " + equipmentName + " Description: " + equipmentDescription + " Activity: " + equipmentActivity + " Date of Purchase: " + equipmentDateOfPurchase + " Purchase Cost: " + equipmentPurchaseCost + " Hire Cost (Weekend): " + equipmentHireCostWeekend + " Hire Cost (Week): " + equipmentHireCostWeek + " Returned: " + equipmentReturned;
+        return "Equipment Number: " + equipmentNumber + ", Name: " + equipmentName + " Description: " + equipmentDescription + " Activity: " + equipmentActivity + " Date of Purchase: " + equipmentDateOfPurchase + " Purchase Cost: " + equipmentPurchaseCost + " Hire Cost (Weekend): " + equipmentHireCostWeekend + " Hire Cost (Week): " + equipmentHireCostWeek + " Returned: " + equipmentReturned;
     }
 
     public void saveToFile(String filename) {
@@ -105,4 +116,16 @@ public class equipment {
             System.out.println("An error occurred while writing to file: " + e.getMessage());
         }
     }
+
+    public static int countLines(String filename) {
+            int lineCount = 0;
+            try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+                while (br.readLine() != null) {
+                    lineCount++;
+                }
+            } catch (IOException e) {
+                System.out.println("An error occurred: " + e.getMessage());
+            }
+            return lineCount;
+        }
 }

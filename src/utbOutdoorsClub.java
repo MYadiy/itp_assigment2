@@ -13,6 +13,10 @@ public class utbOutdoorsClub {
         Scanner input = new Scanner(System.in);
         int memberCount = member.countLines("members.txt");
         System.out.println("Loaded " + memberCount + " members");
+        int equipmentCount = member.countLines("equipment.txt");
+        System.out.println("Loaded " + equipmentCount + " Equpiments");
+        int loanCount = member.countLines("loan.txt");
+        System.out.println("Loaded " + loanCount + " Loans");
 
         System.out.println("\n");
 
@@ -28,7 +32,7 @@ public class utbOutdoorsClub {
             if(0 <= choice && choice < 8){
                 if(choice == 1){
                     
-                    
+                    int memberNo = member.countLines("members.txt") + 1;
                     System.out.println("Adding a new member");
                     System.out.print("Enter first name: ");
                     String fName = input.nextLine();
@@ -46,10 +50,37 @@ public class utbOutdoorsClub {
 
                     System.out.println("\n");
 
-                    member member = new member(fName, lName, email, address, studentRoll, phoneNo);
+                    member member = new member(memberNo, fName, lName, email, address, studentRoll, phoneNo);
                     member.saveToFile("members.txt");
+
                 }else if(choice == 2){
-                    //syazwy here (Add equipment)
+
+                    int equipmentNumber = equipment.countLines("equipment.txt") + 1;
+                    
+                    System.out.println("Adding new equipment");
+                    System.out.print("Enter name of equipment: ");
+                    String equipmentName = input.nextLine();
+                    System.out.print("Enter description of the equipment: ");
+                    String equipmentDescription = input.nextLine();
+                    System.out.print("Enter date of purchase: ");
+                    String equipmentDateOfPurchase = input.nextLine();
+                    System.out.print("Enter purchase cost: ");
+                    int equipmentPurchaseCost = input.nextInt();
+                    System.out.print("Enter the cost per weekend: ");
+                    int equipmentHireCostWeekend = input.nextInt();
+                    System.out.print("Enter the cost per week: ");
+                    int equipmentHireCostWeek = input.nextInt();
+                    System.out.print("Enter the activity: ");
+                    String equipmentActivity = input.next();
+                    boolean equipmentReturned = false;
+                    
+                    input.nextLine(); 
+
+                    System.out.println("\n");
+                    
+                    equipment equipment = new equipment(equipmentName, equipmentDescription, equipmentActivity, equipmentDateOfPurchase, equipmentNumber, equipmentPurchaseCost, equipmentHireCostWeekend, equipmentHireCostWeek, equipmentReturned);
+                    equipment.saveToFile("equipment.txt");
+                    
                 }else if(choice == 3){
                     // Muin here (Loan Equipment)
                 }else if(choice == 4){
@@ -100,7 +131,14 @@ public class utbOutdoorsClub {
         }while(condition == true);
            
 
-        System.out.println("Loaded " + memberCount + " members");
+        int memberCount2 = member.countLines("members.txt");
+        System.out.println("Loaded " + memberCount2 + " members");
+        int equipmentCount2 = member.countLines("equipment.txt");
+        System.out.println("Loaded " + equipmentCount2 + " Equpiments");
+        int loanCount2 = member.countLines("loan.txt");
+        System.out.println("Loaded " + loanCount2 + " Loans");
+
+
        
 
 
