@@ -1,12 +1,16 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 public class equipment {
-    private String equipmentName, equipmentDescription, equipmentActivity;
-    private int equipmentDateOfPurchase, equipmentPurchaseCost, equipmentHireCostWeekend, equipmentHireCostWeek;
+    private String equipmentName, equipmentDescription, equipmentActivity, equipmentDateOfPurchase;
+    private int equipmentPurchaseCost, equipmentHireCostWeekend, equipmentHireCostWeek;
     private boolean equipmentReturned;
 
     // constructor
     
     public equipment(String equipmentName, String equipmentDescription, String equipmentActivity,
-    int equipmentDateOfPurchase, int equipmentPurchaseCost,
+    String equipmentDateOfPurchase, int equipmentPurchaseCost,
     int equipmentHireCostWeekend, int equipmentHireCostWeek, boolean equipmentReturned) {
     this.equipmentName = equipmentName;
     this.equipmentDescription = equipmentDescription;
@@ -32,7 +36,7 @@ public class equipment {
         return equipmentActivity;
     }
 
-    public int getEquipmentDateOfPurchase() {
+    public String getEquipmentDateOfPurchase() {
         return equipmentDateOfPurchase;
     }
 
@@ -67,7 +71,7 @@ public class equipment {
         this.equipmentActivity = equipmentActivity;
     }
 
-    public void setEquipmentDateOfPurchase(int equipmentDateOfPurchase) {
+    public void setEquipmentDateOfPurchase(String equipmentDateOfPurchase) {
         this.equipmentDateOfPurchase = equipmentDateOfPurchase;
     }
 
@@ -100,5 +104,14 @@ public class equipment {
                 ", Hire Cost (Week)=" + equipmentHireCostWeek +
                 ", Returned=" + equipmentReturned +
                 '}';
+    }
+
+    public void saveToFile(String filename) {
+        try (FileWriter fileWriter = new FileWriter(filename, true); 
+            PrintWriter printWriter = new PrintWriter(fileWriter)) {
+            printWriter.println(this.toString());
+        } catch (IOException e) {
+            System.out.println("An error occurred while writing to file: " + e.getMessage());
+        }
     }
 }
