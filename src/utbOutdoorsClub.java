@@ -90,21 +90,20 @@ public class utbOutdoorsClub {
                 }else if(choice == 5){
 
                         System.out.println("List of Overdued Equipment: \n");
-                        String filename = "loan.txt"; // Name of your text file
+                        String filename = "loan.txt";
                         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
                             try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
                                 String line;
 
                                 while ((line = br.readLine()) != null) {
-                                    // Parse the return date from each line
                                     LocalDate returnDate = extractReturnDate(line, formatter);
                                     
                                     if (returnDate != null) {
-                                        // Get the current date
+                                        // get current date
                                         LocalDate currentDate = LocalDate.now();
 
-                                        // Check if the return date is before the current date (indicating overdue)
+                                        // check if overdue
                                         if (returnDate.isBefore(currentDate)) {
                                             System.out.println(line);
                                         } 
@@ -121,33 +120,28 @@ public class utbOutdoorsClub {
 
                     System.out.println("List of Equipment that has not been returned yet:");
                 
-                    // Read the equipment file and display unreturned equipment
                     String filename = "equipment.txt";
                     try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
                         String line;
                 
-                        // Iterate through each line of the equipment file
                         while ((line = br.readLine()) != null) {
                             if (line.contains("Returned: false")) {
-                                // Display equipment details that are not marked as returned
                                 System.out.println(line);
                             }
                         }
                     } catch (IOException e) {
                         System.out.println("Error reading the equipment file: " + e.getMessage());
                     }
-                
-                    // Now prompt the user for the equipment number to return
+
                     System.out.print("Enter the equipment number to return: ");
                     int equipmentNumber = input.nextInt();
-                    input.nextLine();  // Consume the newline character left by nextInt()
-                
-                    // Call the method to mark the equipment as returned
+                    input.nextLine();
+
                     returnEquipment(equipmentNumber);
 
                 }else if(choice == 7){
                 
-                    // exit function 
+                    // exit 
                     System.out.println("Exiting...");
                     condition = false;
                 }
@@ -165,12 +159,6 @@ public class utbOutdoorsClub {
         System.out.println("Loaded " + equipmentCount2 + " Equpiments");
         int loanCount2 = member.countLines("loan.txt");
         System.out.println("Loaded " + loanCount2 + " Loans");
-
-
-       
-
-
-
     }
  //Bar's code
     private static void returnEquipment(int equipmentNumber) {
@@ -185,15 +173,11 @@ public class utbOutdoorsClub {
                 if (line.trim().isEmpty()) {
                     continue;
                 }
-        
-             
-
-        
-                
+                     
                 String[] data = line.split(",\\s*");  // Split by comma and any number of spaces
                 
                 
-                System.out.println(Arrays.toString(data));  // For debugging purposes
+                System.out.println(Arrays.toString(data));  // debugging
                 
                
                 if (data.length == 9) {
@@ -211,7 +195,7 @@ public class utbOutdoorsClub {
         
                         
                         if (currentEquipmentNumber == equipmentNumber) {
-                            data[8] = "Returned: true";  // Mark as returned
+                            data[8] = "Returned: true";
                             equipmentFound = true;
                             System.out.println("Equipment " + equipmentName + " has been marked as returned.");
                         }
@@ -245,10 +229,6 @@ public class utbOutdoorsClub {
         }
     }
     
-    
-    
-        
-
    
     // Method to extract the ReturnDate from a line
     private static LocalDate extractReturnDate(String line, DateTimeFormatter formatter) {
