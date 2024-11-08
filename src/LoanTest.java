@@ -9,19 +9,26 @@ public class LoanTest {
 
         System.out.print("Enter loan date (DD/MM/YYYY): ");
         String loanDate = scanner.nextLine();
-
         LocalDate dateOfLoan = LocalDate.parse(loanDate, dtf);
 
         System.out.print("Enter expected return date (DD/MM/YYYY): ");
         String returnDate = scanner.nextLine();
-        
         LocalDate dateOfReturn = LocalDate.parse(returnDate, dtf);
 
-        Loan loan = new Loan(1, dateOfLoan, dateOfReturn, 202, 505, 404, 4.0);
+        System.out.println("Available activities:");
+        Activity.displayAllActivities();
+
+        System.out.print("Enter activity no: ");
+        String activityName = scanner.nextLine();
+
         
+
+        Loan loan = new Loan(1, dateOfLoan, dateOfReturn, 202, 505, 404, 4.0 );
+
+        // Display loan details
         loan.displayLoanDetails();
-        
-        // Save to file named loan.txt
+
+        // Save to file
         loan.saveToFile("loan.txt");
 
         scanner.close();
