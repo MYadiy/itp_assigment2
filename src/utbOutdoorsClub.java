@@ -32,6 +32,7 @@ public class utbOutdoorsClub {
             if(0 <= choice && choice < 8){
                 if(choice == 1){
                     
+                    int memberNo = member.countLines("members.txt") + 1;
                     System.out.println("Adding a new member");
                     System.out.print("Enter first name: ");
                     String fName = input.nextLine();
@@ -49,7 +50,7 @@ public class utbOutdoorsClub {
 
                     System.out.println("\n");
 
-                    member member = new member(fName, lName, email, address, studentRoll, phoneNo);
+                    member member = new member(memberNo, fName, lName, email, address, studentRoll, phoneNo);
                     member.saveToFile("members.txt");
 
                 }else if(choice == 2){
