@@ -173,7 +173,7 @@ public class utbOutdoorsClub {
                         System.out.println("Error reading file: " + e.getMessage());
                     }
             // _______________
-            Double cost = null;
+            Double cost = 0.0;
             
             if (isWeekend(dateOfLoan)) {
                 try (BufferedReader br = new BufferedReader(new FileReader("equipment.txt"))) {

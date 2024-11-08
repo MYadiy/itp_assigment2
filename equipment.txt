@@ -1,3 +1,2 @@
-Equipment Number: 0, Name: 2 Description: 2 Activity: 2 Date of Purchase: 2 Purchase Cost: 2 Hire Cost (Weekend): 2 Hire Cost (Week): 2 Returned: false
-Equipment Number: 3, Name: 1 Description: 2 Activity: 7 Date of Purchase: 3 Purchase Cost: 4 Hire Cost (Weekend): 5 Hire Cost (Week): 6 Returned: false
-Equipment Number: 1, Name: yadiy Description: large Activity: Hiking Date of Purchase: 1 Purchase Cost: 1 Hire Cost (Weekend): 1 Hire Cost (Week): 1 Returned: false
+
+Equipment Number: 2, Name: boot, Description: hiking boot 10 uk, Activity: Hiking, Date of Purchase: 02/12/2024, Purchase Cost: 200, Hire Cost (Weekend): 20, Hire Cost (Week): 10, Returned: false

@@ -1,3 +1,1 @@
-Member Number: 5, Name: yadiy e, Email: ds, address: s, Roll Number:  a Phone: 222222222
-Member Number: 6, Name: 1 1, Email: 1, address: 1, Roll Number:  1 Phone: 1
-Member Number: 7, Name: ya ya, Email: ta, address: d, Roll Number:  2 Phone: 2
+Member Number: 1, Name: yadiy yursisham, Email: yadiy@gmail.com, address: tanah jambu, Roll Number:  B2024 Phone: 7168944
