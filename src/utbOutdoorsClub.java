@@ -55,6 +55,8 @@ public class utbOutdoorsClub {
 
                 }else if(choice == 2){
 
+                    int equipmentNumber = equipment.countLines("equipment.txt") + 1;
+                    
                     System.out.println("Adding new equipment");
                     System.out.print("Enter name of equipment: ");
                     String equipmentName = input.nextLine();
@@ -69,9 +71,9 @@ public class utbOutdoorsClub {
                     System.out.print("Enter the cost per week: ");
                     int equipmentHireCostWeek = input.nextInt();
                     System.out.print("Enter the activity: ");
-                    String equipmentActivity = input.nextLine();
+                    String equipmentActivity = input.next();
                     boolean equipmentReturned = false;
-                    int equipmentNumber = 1;
+                    
                     input.nextLine(); 
 
                     System.out.println("\n");

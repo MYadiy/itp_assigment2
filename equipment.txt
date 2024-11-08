@@ -1,6 +1,3 @@
-Name: efwe Description: wefwe Activity:  Date of Purchase: eefw Purchase Cost: 4 Hire Cost (Weekend): 4 Hire Cost (Week): 4 Returned: false
-Name: cxew Description: wed Activity:  Date of Purchase: 22 Purchase Cost: 22 Hire Cost (Weekend): 2 Hire Cost (Week): 2 Returned: false
-Name: ewfdwf Description: wefwf Activity:  Date of Purchase: 1 Purchase Cost: 2 Hire Cost (Weekend): 3 Hire Cost (Week): 4 Returned: false
-Name: sdff Description: fwef Activity:  Date of Purchase: 1 Purchase Cost: 1 Hire Cost (Weekend): 1 Hire Cost (Week): 1 Returned: false
-Name: dsf Description: svsf Activity: sdfvbf Date of Purchase: 2 Purchase Cost: 2 Hire Cost (Weekend): 2 Hire Cost (Week): 2 Returned: false
-Name: sdfsdf Description: sefw Activity: sdfsrf Date of Purchase: 1 Purchase Cost: 2 Hire Cost (Weekend): 2 Hire Cost (Week): 2 Returned: false
+
+Equipment Number: 0, Name: 2 Description: 2 Activity: 2 Date of Purchase: 2 Purchase Cost: 2 Hire Cost (Weekend): 2 Hire Cost (Week): 2 Returned: false
+Equipment Number: 3, Name: 1 Description: 2 Activity: 7 Date of Purchase: 3 Purchase Cost: 4 Hire Cost (Weekend): 5 Hire Cost (Week): 6 Returned: false

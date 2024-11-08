@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,6 +15,7 @@ public class equipment {
     String equipmentDateOfPurchase, int equipmentNumber, int equipmentPurchaseCost,
     int equipmentHireCostWeekend, int equipmentHireCostWeek, boolean equipmentReturned) {
     this.equipmentName = equipmentName;
+    this.equipmentNumber = equipmentNumber;
     this.equipmentDescription = equipmentDescription;
     this.equipmentActivity = equipmentActivity;
     this.equipmentDateOfPurchase = equipmentDateOfPurchase;
@@ -102,7 +105,7 @@ public class equipment {
     // display equipment details
 
     public String toString() {
-        return "Name: " + equipmentName + " Description: " + equipmentDescription + " Activity: " + equipmentActivity + " Date of Purchase: " + equipmentDateOfPurchase + " Purchase Cost: " + equipmentPurchaseCost + " Hire Cost (Weekend): " + equipmentHireCostWeekend + " Hire Cost (Week): " + equipmentHireCostWeek + " Returned: " + equipmentReturned;
+        return "Equipment Number: " + equipmentNumber + ", Name: " + equipmentName + " Description: " + equipmentDescription + " Activity: " + equipmentActivity + " Date of Purchase: " + equipmentDateOfPurchase + " Purchase Cost: " + equipmentPurchaseCost + " Hire Cost (Weekend): " + equipmentHireCostWeekend + " Hire Cost (Week): " + equipmentHireCostWeek + " Returned: " + equipmentReturned;
     }
 
     public void saveToFile(String filename) {
@@ -113,4 +116,16 @@ public class equipment {
             System.out.println("An error occurred while writing to file: " + e.getMessage());
         }
     }
+
+    public static int countLines(String filename) {
+            int lineCount = 0;
+            try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+                while (br.readLine() != null) {
+                    lineCount++;
+                }
+            } catch (IOException e) {
+                System.out.println("An error occurred: " + e.getMessage());
+            }
+            return lineCount;
+        }
 }
