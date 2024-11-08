@@ -33,7 +33,7 @@ public class member {
     public void setPhoneNo(int phoneNo) {this.phoneNo = phoneNo;}
 
     public String toString() {
-       return "Name: " + fName + " " + lName + " Email: " + email + " address: " + address + " Roll Number:  "
+       return "Name: " + fName + " " + lName + ", Email: " + email + ", address: " + address + ", Roll Number:  "
        + studentRoll + " Phone: " + phoneNo;  
     }
 

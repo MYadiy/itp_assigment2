@@ -20,7 +20,7 @@ public class testYadiy {
             String studentRoll = input.nextLine();
             System.out.print("Enter phone number: ");
             int phoneNo = input.nextInt();
-            input.nextLine(); 
+           
 
             System.out.println("\n");
 
