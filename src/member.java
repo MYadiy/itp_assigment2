@@ -7,9 +7,10 @@ import java.io.PrintWriter;
 public class member {
 
     private String fName, lName, email, address, studentRoll;
-    private int phoneNo;
+    private int memberNo, phoneNo;
 
-    public member (String fName, String lName, String email, String address, String studentRoll, int phoneNo){
+    public member (int memberNo, String fName, String lName, String email, String address, String studentRoll, int phoneNo){
+        this.memberNo = memberNo;
         this.fName = fName;
         this.lName = lName;
         this.email = email;
@@ -18,6 +19,7 @@ public class member {
         this.phoneNo = phoneNo;
     }
 
+    public int getMemberNo() { return memberNo; }
     public String getFName() { return fName; }
     public String getLName() { return lName; }
     public String getEmail() { return email; }
@@ -31,9 +33,10 @@ public class member {
     public void setAddress(String address) {this.address = address;}
     public void setStudentRoll(String studentRoll) {this.studentRoll = studentRoll;}
     public void setPhoneNo(int phoneNo) {this.phoneNo = phoneNo;}
+    public void setMemberNo(int memberNo) {this.memberNo = memberNo;}; 
 
     public String toString() {
-       return "Name: " + fName + " " + lName + " Email: " + email + " address: " + address + " Roll Number:  "
+       return "Member Number: " + memberNo + ", Name: " + fName + " " + lName + ", Email: " + email + ", address: " + address + ", Roll Number:  "
        + studentRoll + " Phone: " + phoneNo;  
     }
 

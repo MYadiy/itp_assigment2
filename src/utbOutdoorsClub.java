@@ -32,6 +32,7 @@ public class utbOutdoorsClub {
             if(0 <= choice && choice < 8){
                 if(choice == 1){
                     
+                    int memberNo = member.countLines("members.txt") + 1;
                     System.out.println("Adding a new member");
                     System.out.print("Enter first name: ");
                     String fName = input.nextLine();
@@ -49,11 +50,13 @@ public class utbOutdoorsClub {
 
                     System.out.println("\n");
 
-                    member member = new member(fName, lName, email, address, studentRoll, phoneNo);
+                    member member = new member(memberNo, fName, lName, email, address, studentRoll, phoneNo);
                     member.saveToFile("members.txt");
 
                 }else if(choice == 2){
 
+                    int equipmentNumber = equipment.countLines("equipment.txt") + 1;
+                    
                     System.out.println("Adding new equipment");
                     System.out.print("Enter name of equipment: ");
                     String equipmentName = input.nextLine();
@@ -68,9 +71,9 @@ public class utbOutdoorsClub {
                     System.out.print("Enter the cost per week: ");
                     int equipmentHireCostWeek = input.nextInt();
                     System.out.print("Enter the activity: ");
-                    String equipmentActivity = input.nextLine();
+                    String equipmentActivity = input.next();
                     boolean equipmentReturned = false;
-                    int equipmentNumber = 1;
+                    
                     input.nextLine(); 
 
                     System.out.println("\n");

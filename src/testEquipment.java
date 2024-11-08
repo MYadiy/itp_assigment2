@@ -20,6 +20,8 @@ public class testEquipment {
             int equipmentHireCostWeek = input.nextInt();
             System.out.print("Enter the activity: ");
             String equipmentActivity = input.next();
+            
+
             boolean equipmentReturned = false;
             int equipmentNumber = 1;
             input.nextLine(); 
