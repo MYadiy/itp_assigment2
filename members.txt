@@ -1,7 +1,3 @@
-Name: w w Email: w address: w Roll Number:  w Phone: 2
-Name: yadiy yusri Email: yadiy address: da Roll Number:  sd Phone: 234
-Name: sdcsdf sdfsdf Email: sdfsdf address: sdfsdf Roll Number:  ssdfsdf Phone: 2
-Name:  dfgdfg Email: gdrg address: dgdgdrt Roll Number:  ergedrg Phone: 444
- Member Number: 5, Name: yadiy e, Email: ds, address: s, Roll Number:  a Phone: 222222222
+Member Number: 5, Name: yadiy e, Email: ds, address: s, Roll Number:  a Phone: 222222222
 Member Number: 6, Name: 1 1, Email: 1, address: 1, Roll Number:  1 Phone: 1
 Member Number: 7, Name: ya ya, Email: ta, address: d, Roll Number:  2 Phone: 2
