@@ -13,6 +13,10 @@ public class utbOutdoorsClub {
         Scanner input = new Scanner(System.in);
         int memberCount = member.countLines("members.txt");
         System.out.println("Loaded " + memberCount + " members");
+        int equipmentCount = member.countLines("equipment.txt");
+        System.out.println("Loaded " + equipmentCount + " Equpiments");
+        int loanCount = member.countLines("loan.txt");
+        System.out.println("Loaded " + loanCount + " Loans");
 
         System.out.println("\n");
 

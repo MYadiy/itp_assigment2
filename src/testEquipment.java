@@ -1,4 +1,4 @@
-import java.util.Scanner;
+eweimport java.util.Scanner;
 
 public class testEquipment {
     public static void main(String[] args) {
