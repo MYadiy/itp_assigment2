@@ -1,1 +1,3 @@
 Name: efwe Description: wefwe Activity:  Date of Purchase: eefw Purchase Cost: 4 Hire Cost (Weekend): 4 Hire Cost (Week): 4 Returned: false
+Name: snowboard Description: panjang Activity:  Date of Purchase: 31/03/2024 Purchase Cost: 2 Hire Cost (Weekend): 2 Hire Cost (Week): 2 Returned: false
+Name: snowboard Description: panjang Activity: Hiking Date of Purchase: 231 Purchase Cost: 13 Hire Cost (Weekend): 2 Hire Cost (Week): 34 Returned: false

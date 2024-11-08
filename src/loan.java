@@ -53,9 +53,5 @@ public class Loan {
         // System.out.println("Cost: $" + cost);
     }
 
-    //if overdue
-    // public boolean isOverdue() {
-    //     return LocalDate.now().isAfter(dateOfReturn);
-    // }
 
 }

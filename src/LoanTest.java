@@ -23,11 +23,12 @@ public class LoanTest {
 
         System.out.print("Enter activity number: ");
         int activityNumber = scanner.nextInt();
-        scanner.nextLine(); // consume newline
+        scanner.nextLine(); 
 
         Activity selectedActivity;
         try {
             selectedActivity = Activity.values()[activityNumber - 1];
+            // System.out.println("Selected activity: " + selectedActivity.getDisplayName());
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Invalid activity number selected.");
             scanner.close();
@@ -35,42 +36,33 @@ public class LoanTest {
         }
 
         String filename = "equipment.txt";
+        System.out.println("Equipment no, Equipment name, Description Cost weekend, Cost per week");
 
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;
+            boolean equipmentFound = false;
+
             while ((line = br.readLine()) != null) {
-                Activity activityFromFile = extractActivities(line);
-                if (activityFromFile != null) {
-                    System.out.println("Extracted activity from file: " + activityFromFile.getDisplayName());
+                if (line.contains("Activity: " + selectedActivity.getDisplayName())) {
+                    System.out.println("" + line);
+                    equipmentFound = true;
                 }
             }
+
+            if (!equipmentFound) {
+                System.out.println("No equipment found for the selected activity.");
+            }
+
         } catch (IOException e) {
             System.out.println("Error reading file: " + e.getMessage());
         }
 
         Loan loan = new Loan(1, dateOfLoan, dateOfReturn, 202, 505, 404, 4.0);
 
-        // Display loan details
-        loan.displayLoanDetails();
+        // loan.displayLoanDetails();
 
-        // Save to file
         loan.saveToFile("loan.txt");
 
         scanner.close();
-    }
-
-    private static Activity extractActivities(String line) {
-        try {
-            // Find the start and end indices for the Activity substring
-            int startIndex = line.indexOf("Activity: ") + "Activity: ".length();
-            int endIndex = line.indexOf(",", startIndex); // Find the end of the activity substring
-            if (startIndex >= "Activity: ".length() && endIndex > startIndex) {
-                String activityStr = line.substring(startIndex, endIndex).trim();
-                return Activity.fromDisplayName(activityStr); // Convert string to Activity enum
-            }
-        } catch (IllegalArgumentException e) {
-            System.out.println("Invalid activity in line: " + line);
-        }
-        return null;
     }
 }

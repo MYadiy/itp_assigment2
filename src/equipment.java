@@ -102,7 +102,7 @@ public class equipment {
     // display equipment details
 
     public String toString() {
-        return "Name: " + equipmentName + " Description: " + equipmentDescription + " Activity: " + equipmentActivity + " Date of Purchase: " + equipmentDateOfPurchase + " Purchase Cost: " + equipmentPurchaseCost + " Hire Cost (Weekend): " + equipmentHireCostWeekend + " Hire Cost (Week): " + equipmentHireCostWeek + " Returned: " + equipmentReturned;
+        return "Name: " + equipmentName + ", Description: " + equipmentDescription + ", Activity: " + equipmentActivity + ", Date of Purchase: " + equipmentDateOfPurchase + ", Purchase Cost: " + equipmentPurchaseCost + ", Hire Cost (Weekend): " + equipmentHireCostWeekend + ", Hire Cost (Week): " + equipmentHireCostWeek + ", Returned: " + equipmentReturned;
     }
 
     public void saveToFile(String filename) {
