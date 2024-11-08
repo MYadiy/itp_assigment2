@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-eweimport java.util.Scanner;
+import java.util.Scanner;
 
 public class testEquipment {
     public static void main(String[] args) {
