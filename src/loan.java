@@ -13,7 +13,7 @@ public class Loan {
     private int gearOfficerNo;
     private double cost;
 
-    public Loan(int loanNo, LocalDate dateOfLoan, LocalDate dateOfReturn,int itemNo, int memberNo, int gearOfficerNo) {
+    public Loan(int loanNo, LocalDate dateOfLoan, LocalDate dateOfReturn,int itemNo, int memberNo, int gearOfficerNo, double cost) {
         this.loanNo = loanNo;
         this.dateOfLoan = dateOfLoan;
         this.dateOfReturn = dateOfReturn;
@@ -24,7 +24,7 @@ public class Loan {
     }
 
     public double costTotal(double costPerWeekend, double costPerWeek) {
-        float days = ChronoUnit.DAYS.between(dateOfLoan, dateOfReturn);
+        long days = ChronoUnit.DAYS.between(dateOfLoan, dateOfReturn);
         if (days > 7) {
             this.cost = (days / 7) * costPerWeek;
         } else {
@@ -44,18 +44,18 @@ public class Loan {
 
     // Displaying the data 
     public void displayLoanDetails() {
-        System.out.println("Loan No: " + loanNo);
+        // System.out.println("Loan No: " + loanNo);
         System.out.println("Loan Date: " + dateOfLoan);
         System.out.println("Return Date: " + dateOfReturn);
-        System.out.println("Item No: " + itemNo);
-        System.out.println("Member No: " + memberNo);
-        System.out.println("Gear Officer No: " + gearOfficerNo);
-        System.out.println("Cost: $" + cost);
+        // System.out.println("Item No: " + itemNo);
+        // System.out.println("Member No: " + memberNo);
+        // System.out.println("Gear Officer No: " + gearOfficerNo);
+        // System.out.println("Cost: $" + cost);
     }
 
     //if overdue
-    public boolean isOverdue() {
-        return LocalDate.now().isAfter(dateOfReturn);
-    }
+    // public boolean isOverdue() {
+    //     return LocalDate.now().isAfter(dateOfReturn);
+    // }
 
 }
