@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+eweimport java.util.Scanner;
+
 public class testEquipment {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -21,11 +23,12 @@ public class testEquipment {
             System.out.print("Enter the activity: ");
             String equipmentActivity = input.nextLine();
             boolean equipmentReturned = false;
+            int equipmentNumber = 1;
             input.nextLine(); 
 
             System.out.println("\n");
-
-            equipment equipment = new equipment(equipmentName, equipmentDescription, equipmentActivity, equipmentDateOfPurchase, equipmentPurchaseCost, equipmentHireCostWeekend, equipmentHireCostWeek, equipmentReturned);
+            
+            equipment equipment = new equipment(equipmentName, equipmentDescription, equipmentActivity, equipmentDateOfPurchase, equipmentNumber, equipmentPurchaseCost, equipmentHireCostWeekend, equipmentHireCostWeek, equipmentReturned);
             equipment.saveToFile("equipment.txt");
         }
 

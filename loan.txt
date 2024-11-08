@@ -5,3 +5,4 @@ Loan.No: 1, LoanDate: 2024-11-01, ReturnDate: 2024-11-08, Item.No: 202, Member.N
 Loan.No: 1, LoanDate: 2023-10-31, ReturnDate: 2023-11-11, Item.No: 202, Member.No: 505, GearOfficer.No: 404, Cost: 0.0
 Loan.No: 2, LoanDate: 2023-03-10, ReturnDate: 2023-03-13, Item.No: 202, Member.No: 505, GearOfficer.No: 404, Cost: 0.0
 Loan.No: 1, LoanDate: 2024-05-13, ReturnDate: 2024-05-14, Item.No: 202, Member.No: 505, GearOfficer.No: 404, Cost: 0.0
+Loan.No: 1, LoanDate: 2024-04-05, ReturnDate: 2024-05-10, Item.No: 202, Member.No: 505, GearOfficer.No: 404, Cost: 0.0
