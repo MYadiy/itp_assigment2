@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -46,4 +48,18 @@ public class member {
             System.out.println("An error occurred while writing to file: " + e.getMessage());
         }
     }
+
+
+        public static int countLines(String filename) {
+            int lineCount = 0;
+            try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+                while (br.readLine() != null) {
+                    lineCount++;
+                }
+            } catch (IOException e) {
+                System.out.println("An error occurred: " + e.getMessage());
+            }
+            return lineCount;
+        }
+
 }
