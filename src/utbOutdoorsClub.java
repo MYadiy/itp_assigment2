@@ -5,7 +5,9 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class utbOutdoorsClub {
     public static void main(String[] args) {
@@ -116,7 +118,33 @@ public class utbOutdoorsClub {
                             }
                             System.out.println("\n");
                 }else if(choice == 6){
-                    // return equipment 
+
+                    System.out.println("List of Equipment that has not been returned yet:");
+                
+                    // Read the equipment file and display unreturned equipment
+                    String filename = "equipment.txt";
+                    try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+                        String line;
+                
+                        // Iterate through each line of the equipment file
+                        while ((line = br.readLine()) != null) {
+                            if (line.contains("Returned: false")) {
+                                // Display equipment details that are not marked as returned
+                                System.out.println(line);
+                            }
+                        }
+                    } catch (IOException e) {
+                        System.out.println("Error reading the equipment file: " + e.getMessage());
+                    }
+                
+                    // Now prompt the user for the equipment number to return
+                    System.out.print("Enter the equipment number to return: ");
+                    int equipmentNumber = input.nextInt();
+                    input.nextLine();  // Consume the newline character left by nextInt()
+                
+                    // Call the method to mark the equipment as returned
+                    returnEquipment(equipmentNumber);
+
                 }else if(choice == 7){
                 
                     // exit function 
@@ -144,7 +172,84 @@ public class utbOutdoorsClub {
 
 
     }
+ //Bar's code
+    private static void returnEquipment(int equipmentNumber) {
+        String filename = "equipment.txt";
+        List<String> updatedEquipmentList = new ArrayList<>();
+        boolean equipmentFound = false;
+        
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+               
+                if (line.trim().isEmpty()) {
+                    continue;
+                }
+        
+             
 
+        
+                
+                String[] data = line.split(",\\s*");  // Split by comma and any number of spaces
+                
+                
+                System.out.println(Arrays.toString(data));  // For debugging purposes
+                
+               
+                if (data.length == 9) {
+                    try {
+                        
+                        int currentEquipmentNumber = Integer.parseInt(data[0].split(": ")[1].trim());
+                        String equipmentName = data[1].split(": ")[1].trim();
+                        String equipmentDescription = data[2].split(": ")[1].trim();
+                        String equipmentActivity = data[3].split(": ")[1].trim();
+                        String equipmentDateOfPurchase = data[4].split(": ")[1].trim();
+                        int equipmentPurchaseCost = Integer.parseInt(data[5].split(": ")[1].trim());
+                        int equipmentHireCostWeekend = Integer.parseInt(data[6].split(": ")[1].trim());
+                        int equipmentHireCostWeek = Integer.parseInt(data[7].split(": ")[1].trim());
+                        String returnedStatus = data[8].split(": ")[1].trim();
+        
+                        
+                        if (currentEquipmentNumber == equipmentNumber) {
+                            data[8] = "Returned: true";  // Mark as returned
+                            equipmentFound = true;
+                            System.out.println("Equipment " + equipmentName + " has been marked as returned.");
+                        }
+        
+                        
+                        updatedEquipmentList.add(String.join(", ", data));
+                    } catch (Exception e) {
+                        System.out.println("Error processing data for line: " + line + " - " + e.getMessage());
+                    }
+                } else {
+                    System.out.println("Warning: Skipping improperly formatted line: " + line);
+                    updatedEquipmentList.add(line);  
+                }
+            }
+        } catch (IOException | NumberFormatException e) {
+            System.out.println("Error processing equipment file: " + e.getMessage());
+        }
+        
+        
+        if (equipmentFound) {
+            try (PrintWriter writer = new PrintWriter(new FileWriter(filename))) {
+                for (String equipmentData : updatedEquipmentList) {
+                    writer.println(equipmentData);
+                }
+                System.out.println("Equipment list updated in " + filename);
+            } catch (IOException e) {
+                System.out.println("Error updating equipment file: " + e.getMessage());
+            }
+        } else {
+            System.out.println("Equipment number " + equipmentNumber + " not found.");
+        }
+    }
+    
+    
+    
+        
+
+   
     // Method to extract the ReturnDate from a line
     private static LocalDate extractReturnDate(String line, DateTimeFormatter formatter) {
         try {
