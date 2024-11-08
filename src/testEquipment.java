@@ -19,7 +19,9 @@ public class testEquipment {
             System.out.print("Enter the cost per week: ");
             int equipmentHireCostWeek = input.nextInt();
             System.out.print("Enter the activity: ");
-            String equipmentActivity = input.nextLine();
+            String equipmentActivity = input.next();
+            
+
             boolean equipmentReturned = false;
             int equipmentNumber = 1;
             input.nextLine(); 
