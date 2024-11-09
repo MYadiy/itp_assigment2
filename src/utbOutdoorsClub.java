@@ -73,11 +73,10 @@ public class utbOutdoorsClub {
                     int equipmentHireCostWeekend = input.nextInt();
                     System.out.print("Enter the cost per week: ");
                     int equipmentHireCostWeek = input.nextInt();
-                    System.out.print("Enter the activity: ");
-                    String equipmentActivity = input.next();
-                    boolean equipmentReturned = false;
-                    
                     input.nextLine(); 
+                    System.out.print("Enter the activity: ");
+                    String equipmentActivity = input.nextLine();
+                    boolean equipmentReturned = false;                    
 
                     System.out.println("\n");
                     
@@ -226,10 +225,9 @@ public class utbOutdoorsClub {
                         }
                     }
 
-                    int loanCounter = 1;
-                    int loanNo = loanCounter++;
-            
-                    Loan loan = new Loan(loanNo, dateOfLoan, dateOfReturn, equipmentNumber, selectedMember, gearOfficer, cost);
+
+          
+                    Loan loan = new Loan(dateOfLoan, dateOfReturn, equipmentNumber, selectedMember, gearOfficer, cost);
                     // loan.displayLoanDetails();
                     loan.saveToFile("loan.txt");
                     System.out.println("The cost of hiring the equipment is $" + cost);

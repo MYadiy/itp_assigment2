@@ -13,7 +13,7 @@ public class Loan {
     private String gearOfficer;
     private int cost;
 
-    public Loan(int loanNo, LocalDate dateOfLoan, LocalDate dateOfReturn,int equipmentNo, int memberNo, String gearOfficer, int cost) {
+    public Loan(LocalDate dateOfLoan, LocalDate dateOfReturn,int equipmentNo, int memberNo, String gearOfficer, int cost) {
         this.loanNo = loanCounter++;
         this.dateOfLoan = dateOfLoan;
         this.dateOfReturn = dateOfReturn;
