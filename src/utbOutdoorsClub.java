@@ -85,6 +85,7 @@ public class utbOutdoorsClub {
                     equipment.saveToFile("equipment.txt");
                     
                 }else if(choice == 3){
+                    
                     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
                     System.out.print("Enter loan date (DD/MM/YYYY): ");
@@ -224,8 +225,11 @@ public class utbOutdoorsClub {
                             System.out.println("Error reading file: " + e.getMessage());
                         }
                     }
+
+                    int loanCounter = 1;
+                    int loanNo = loanCounter++;
             
-                    Loan loan = new Loan(1, dateOfLoan, dateOfReturn, equipmentNumber, selectedMember, gearOfficer, cost);
+                    Loan loan = new Loan(loanNo, dateOfLoan, dateOfReturn, equipmentNumber, selectedMember, gearOfficer, cost);
                     // loan.displayLoanDetails();
                     loan.saveToFile("loan.txt");
                     System.out.println("The cost of hiring the equipment is $" + cost);

@@ -3,7 +3,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 
-public class Loan {    
+public class Loan {  
+    private static int loanCounter = 1;
     private int loanNo;
     private LocalDate dateOfLoan;
     private LocalDate dateOfReturn;
@@ -13,7 +14,7 @@ public class Loan {
     private int cost;
 
     public Loan(int loanNo, LocalDate dateOfLoan, LocalDate dateOfReturn,int equipmentNo, int memberNo, String gearOfficer, int cost) {
-        this.loanNo = loanNo;
+        this.loanNo = loanCounter++;
         this.dateOfLoan = dateOfLoan;
         this.dateOfReturn = dateOfReturn;
         this.equipmentNo = equipmentNo;
@@ -21,6 +22,10 @@ public class Loan {
         this.gearOfficer = gearOfficer;
         this.cost = cost; 
     } 
+
+    public int getLoanNumber() {
+        return loanNo;
+    }
 
     public void saveToFile(String filename) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true))) {
