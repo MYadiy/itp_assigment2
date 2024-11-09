@@ -74,8 +74,36 @@ public class utbOutdoorsClub {
                     System.out.print("Enter the cost per week: ");
                     int equipmentHireCostWeek = input.nextInt();
                     input.nextLine(); 
-                    System.out.print("Enter the activity: ");
-                    String equipmentActivity = input.nextLine();
+
+                    boolean condition2 = true;
+                    String equipmentActivity = "";
+
+
+                    // Set of valid activities
+                    Set<String> validActivities = Set.of(
+                        "Rock Climbing", "Hiking", "Bush Walking", "Caving", 
+                        "Mountain Biking", "Paddling", "ALL"
+                    );
+
+                    while (condition2) {
+                        System.out.print("Enter the activity: ");
+                        equipmentActivity = input.nextLine();
+
+                        // Check if entered activity is valid (case-insensitive)
+                        if (validActivities.contains(equipmentActivity)) {
+                            condition2 = false; // Exit loop if activity is valid
+                        } else {
+                            System.out.println("Please enter one of the following activities:");
+                            System.out.println("1. Rock Climbing");
+                            System.out.println("2. Hiking");
+                            System.out.println("3. Bush Walking");
+                            System.out.println("4. Caving");
+                            System.out.println("5. Mountain Biking");
+                            System.out.println("6. Paddling");
+                            System.out.println("7. ALL");
+                        }
+                    }
+                    
                     boolean equipmentReturned = false;                    
 
                     System.out.println("\n");
