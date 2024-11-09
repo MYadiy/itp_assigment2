@@ -301,12 +301,10 @@ public class utbOutdoorsClub {
         }while(condition == true);
            
 
-        int memberCount2 = member.countLines("members.txt");
-        System.out.println("Loaded " + memberCount2 + " members");
-        int equipmentCount2 = member.countLines("equipment.txt");
-        System.out.println("Loaded " + equipmentCount2 + " Equpiments");
-        int loanCount2 = member.countLines("loan.txt");
-        System.out.println("Loaded " + loanCount2 + " Loans");
+    
+        System.out.println("Equipment recirds saved to file");    
+        System.out.println("Members records saved to file");
+        System.out.println("Loa records sabe to file");
     }
  //Bar's code
     private static void returnEquipment(int equipmentNumber) {
