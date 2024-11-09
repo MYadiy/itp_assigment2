@@ -1,4 +1,0 @@
-
-Equipment Number: 2, Name: mcdodo, Description: small, Activity: Rock, Date of Purchase: 11/11/2024, Purchase Cost: 20, Hire Cost (Weekend): 20, Hire Cost (Week): 100, Returned: false
-Equipment Number: 3, Name: mcdidi, Description: big, Activity: paddling, Date of Purchase: 12/12/2024, Purchase Cost: 200, Hire Cost (Weekend): 1, Hire Cost (Week): 200, Returned: false
-Equipment Number: 4, Name: ce, Description: wefw, Activity: Bush Walking, Date of Purchase: 3, Purchase Cost: 3, Hire Cost (Weekend): 3, Hire Cost (Week): 3, Returned: false

@@ -1,4 +1,0 @@
-
-Loan.No: 1, LoanDate: 2024-11-11, ReturnDate: 2024-11-12, Item.No: 1, Member.No: 2, GearOfficer: muin abdul, Cost: 0
-Loan.No: 1, LoanDate: 2024-11-11, ReturnDate: 2024-11-12, Item.No: 3, Member.No: 2, GearOfficer: muin abdul, Cost: 200
-Loan.No: 1, LoanDate: 2024-11-11, ReturnDate: 2024-11-11, Item.No: 3, Member.No: 2, GearOfficer: muin abdul, Cost: 200

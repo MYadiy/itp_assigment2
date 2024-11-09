@@ -79,7 +79,7 @@ public class utbOutdoorsClub {
                     String equipmentActivity = "";
 
 
-                    // Set of valid activities
+                    
                     Set<String> validActivities = Set.of(
                         "Rock Climbing", "Hiking", "Bush Walking", "Caving", 
                         "Mountain Biking", "Paddling", "ALL"
@@ -89,9 +89,9 @@ public class utbOutdoorsClub {
                         System.out.print("Enter the activity: ");
                         equipmentActivity = input.nextLine();
 
-                        // Check if entered activity is valid (case-insensitive)
+                        
                         if (validActivities.contains(equipmentActivity)) {
-                            condition2 = false; // Exit loop if activity is valid
+                            condition2 = false; 
                         } else {
                             System.out.println("Please enter one of the following activities:");
                             System.out.println("1. Rock Climbing");
