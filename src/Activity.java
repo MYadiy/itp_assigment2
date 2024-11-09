@@ -4,7 +4,7 @@ public enum Activity {
     BUSH_WALKING("Bush Walking"),
     CAVING("Caving"),
     MOUNTAIN_BIKING("Mountain Biking"),
-    PADDLING("Paddling"),
+    PADDLING("paddling"),
     ALL("All");
 
     private final String displayName;

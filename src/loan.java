@@ -10,21 +10,21 @@ public class Loan {
     private int equipmentNo;
     private int memberNo;
     private String gearOfficer;
-    private double cost;
+    private int cost;
 
-    public Loan(int loanNo, LocalDate dateOfLoan, LocalDate dateOfReturn,int equipmentNo, int memberNo, String gearOfficer, double cost) {
+    public Loan(int loanNo, LocalDate dateOfLoan, LocalDate dateOfReturn,int equipmentNo, int memberNo, String gearOfficer, int cost) {
         this.loanNo = loanNo;
         this.dateOfLoan = dateOfLoan;
         this.dateOfReturn = dateOfReturn;
         this.equipmentNo = equipmentNo;
         this.memberNo = memberNo;
         this.gearOfficer = gearOfficer;
-        this.cost = 0.0; 
+        this.cost = cost; 
     } 
 
     public void saveToFile(String filename) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true))) {
-            writer.write("Loan.No: " + loanNo + ", LoanDate: " + dateOfLoan + ", ReturnDate: " + dateOfReturn + ", Item.No: " + equipmentNo + ", Member.No: " + memberNo + ", GearOfficer" + gearOfficer + ", Cost: " + cost);
+            writer.write("Loan.No: " + loanNo + ", LoanDate: " + dateOfLoan + ", ReturnDate: " + dateOfReturn + ", Item.No: " + equipmentNo + ", Member.No: " + memberNo + ", GearOfficer: " + gearOfficer + ", Cost: " + cost);
             writer.newLine(); 
         } catch (IOException e) {
             System.out.println("Error" + e.getMessage());

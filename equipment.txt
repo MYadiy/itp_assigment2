@@ -1,2 +1,3 @@
 
-Equipment Number: 2, Name: boot, Description: hiking boot 10 uk, Activity: Hiking, Date of Purchase: 02/12/2024, Purchase Cost: 200, Hire Cost (Weekend): 20, Hire Cost (Week): 10, Returned: false
+Equipment Number: 2, Name: mcdodo, Description: small, Activity: Rock, Date of Purchase: 11/11/2024, Purchase Cost: 20, Hire Cost (Weekend): 20, Hire Cost (Week): 100, Returned: false
+Equipment Number: 3, Name: mcdidi, Description: big, Activity: paddling, Date of Purchase: 12/12/2024, Purchase Cost: 200, Hire Cost (Weekend): 1, Hire Cost (Week): 200, Returned: false

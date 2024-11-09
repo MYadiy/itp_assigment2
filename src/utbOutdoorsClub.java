@@ -95,65 +95,76 @@ public class utbOutdoorsClub {
                     String returnDate = input.nextLine();
                     LocalDate dateOfReturn = LocalDate.parse(returnDate, dtf);
             
-                    System.out.println("Available activities:");
-                    Activity.displayAllActivities();
-            
-                    System.out.print("Enter activity number: ");
-                    int activityNumber = input.nextInt();
-                    input.nextLine();
-            
-                    Activity selectedActivity;
-                    try {
+                    boolean equipmentFound = false;
+                    Activity selectedActivity = null;
+
+                    while (!equipmentFound) {
+                        System.out.println("Available activities:");
+                        Activity.displayAllActivities(); 
+
+                        System.out.print("Enter activity number: ");
+                        int activityNumber = input.nextInt();
+                        input.nextLine();  
+
                         selectedActivity = Activity.values()[activityNumber - 1];
-                    } catch (ArrayIndexOutOfBoundsException e) {
-                        System.out.println("Invalid activity number selected.");
-                        input.close();
-                        return;
-                    }
-            
-                    System.out.println("Equipment no, Equipment name, Description Cost weekend, Cost per week");
-            
-                    try (BufferedReader br = new BufferedReader(new FileReader("equipment.txt"))) {
-                        String line;
-                        boolean equipmentFound = false;
-            
-                        while ((line = br.readLine()) != null) {
-                            if (line.contains("Activity: " + selectedActivity.getDisplayName())) {
-                                System.out.println("" + line);
-                                equipmentFound = true;
+
+                        // Display the equipment based on the selected activity
+                        System.out.println("Equipment no, Equipment name, Description, Cost weekend, Cost per week");
+
+                        try (BufferedReader br = new BufferedReader(new FileReader("equipment.txt"))) {
+                            String line;
+                            equipmentFound = false; 
+                            
+                            while ((line = br.readLine()) != null) {
+                                if (line.contains("Activity: " + selectedActivity.getDisplayName())) {
+
+                                    String[] parts = line.split(", ");
+                                    String equipmentNumber = parts[0].split(": ")[1];
+                                    String name = parts[1].split(": ")[1];
+                                    String description = parts[2].split(": ")[1];
+                                    String hireCostWeekend = parts[6].split(": ")[1];
+                                    String hireCostWeek = parts[7].split(": ")[1];
+
+                                    System.out.println(equipmentNumber + ", " + name + ", " + description + ", " + hireCostWeekend + ", " + hireCostWeek);
+                                    equipmentFound = true;
+                                }
                             }
+
+                            if (!equipmentFound) {
+                                System.out.println("No equipment found!");
+                            }       
+                        } catch (IOException e) {
+                            System.out.println("Error reading file: " + e.getMessage());
                         }
-            
-                        if (!equipmentFound) {
-                            System.out.println("No equipment found for the selected activity.");
-                        }
-            
-                    } catch (IOException e) {
-                        System.out.println("Error reading file: " + e.getMessage());
+
                     }
-            
+             
                     System.out.print("Enter equipment number: ");
                     int equipmentNumber = input.nextInt();
             
+                    // Display members for gear officer selection
                     System.out.println("Person who is hiring:");
                     try (BufferedReader br = new BufferedReader(new FileReader("members.txt"))) {
                         String line;
                         while ((line = br.readLine()) != null) {
                             if (line.contains("Member")) {
-                                System.out.println("" + line);
+            
+                                String[] parts = line.split(", ");      
+                                String memberNumber = parts[0].split(": ")[1]; 
+                                String name = parts[1].split(": ")[1]; 
+                    
+                                System.out.println(memberNumber + ". " + name);
                             }
                         }
             
                     } catch (IOException e) {
                         System.out.println("Error reading file: " + e.getMessage());
                     }
-
-
-                    System.out.print("Enter member no: ");
+            
                     int selectedMember = input.nextInt();
-            
                     String gearOfficer = null;
-            
+                    int cost = 0;
+
                     try (BufferedReader br = new BufferedReader(new FileReader("members.txt"))) {
                         String line;
             
@@ -172,68 +183,52 @@ public class utbOutdoorsClub {
                     } catch (IOException e) {
                         System.out.println("Error reading file: " + e.getMessage());
                     }
-            // _______________
-            Double cost = 0.0;
             
-            if (isWeekend(dateOfLoan)) {
-                try (BufferedReader br = new BufferedReader(new FileReader("equipment.txt"))) {
-                    String line;
+                    if (isWeekend(dateOfLoan)) {
+                        try (BufferedReader br = new BufferedReader(new FileReader("equipment.txt"))) {
+                            String line;
             
-                    while ((line = br.readLine()) != null) {
-                        if (line.contains("Equipment Number: " + equipmentNumber)) {
-                            int startIndex = line.indexOf("Hire Cost (Weekend): ") + "Hire Cost (Weekend): ".length();
-                            int endIndex = line.indexOf(" ", startIndex); // Find the space after the cost or end of line
-                            if (endIndex == -1) endIndex = line.length(); // Handle end of line
+                            while ((line = br.readLine()) != null) {
+                                if (line.contains("Equipment Number: " + equipmentNumber)) {
+                                    int startIndex = line.indexOf("Hire Cost (Weekend): ") + "Hire Cost (Weekend): ".length();
+                                    int endIndex = line.indexOf(",", startIndex);
+                                    if (endIndex == -1) endIndex = line.length();
             
-                            String costString = line.substring(startIndex, endIndex).trim();
-                            try {
-                                cost = Double.parseDouble(costString); 
-                            } catch (NumberFormatException e) {
-                                System.out.println("Error parsing cost value: " + costString);
+                                    String costString = line.substring(startIndex, endIndex).trim();
+                                    cost = Integer.parseInt(costString);
+                                    break;
+                                }
                             }
-                            break; 
+            
+                        } catch (IOException e) {
+                            System.out.println("Error reading file: " + e.getMessage());
+                        }
+            
+                    } else {
+                        try (BufferedReader br = new BufferedReader(new FileReader("equipment.txt"))) {
+                            String line;
+            
+                            while ((line = br.readLine()) != null) {
+                                if (line.contains("Equipment Number: " + equipmentNumber)) {
+                                    int startIndex = line.indexOf("Hire Cost (Week): ") + "Hire Cost (Week): ".length();
+                                    int endIndex = line.indexOf(",", startIndex);
+                                    if (endIndex == -1) endIndex = line.length();
+            
+                                    String costString = line.substring(startIndex, endIndex).trim();
+                                    cost = Integer.parseInt(costString);
+                                    break;
+                                }
+                            }
+            
+                        } catch (IOException e) {
+                            System.out.println("Error reading file: " + e.getMessage());
                         }
                     }
             
-                } catch (IOException e) {
-                    System.out.println("Error reading file: " + e.getMessage());
-                }
-            
-            } else {
-                try (BufferedReader br = new BufferedReader(new FileReader("equipment.txt"))) {
-                    String line;
-            
-                    while ((line = br.readLine()) != null) {
-                        if (line.contains("Equipment Number: " + equipmentNumber)) {
-                            int startIndex = line.indexOf("Hire Cost (Week): ") + "Hire Cost (Week): ".length();
-                            int endIndex = line.indexOf(" ", startIndex);
-                            if (endIndex == -1) endIndex = line.length();
-            
-                            String costString = line.substring(startIndex, endIndex).trim();
-                            try {
-                                cost = Double.parseDouble(costString); 
-                            } catch (NumberFormatException e) {
-                                System.out.println("Error parsing cost value: " + costString);
-                            }
-                            break; 
-                        }
-                    }
-            
-                } catch (IOException e) {
-                    System.out.println("Error reading file: " + e.getMessage());
-                }
-            }
-            
-            
-            // ___________
-            
-            if (gearOfficer != null) {
-                Loan loan = new Loan(1, dateOfLoan, dateOfReturn, equipmentNumber, selectedMember, gearOfficer, cost);
-                loan.displayLoanDetails();
-                loan.saveToFile("loan.txt");
-            } else {
-                System.out.println("Cannot proceed with loan creation without a valid gear officer.");
-            }
+                    Loan loan = new Loan(1, dateOfLoan, dateOfReturn, equipmentNumber, selectedMember, gearOfficer, cost);
+                    // loan.displayLoanDetails();
+                    loan.saveToFile("loan.txt");
+                    System.out.println("The cost of hiring the equipment is $" + cost);
                 }else if(choice == 4){
                     String equipmentNoReturn = "equipment.txt"; // File name
 
